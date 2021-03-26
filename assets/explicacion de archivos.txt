@@ -1,0 +1,44 @@
+
+//// 1_tt  aqui solo hay un valor entero 
+/// que es el total de zonas turisticas 
+
+
+// por default hay 5 hoteles y 5 restaurantes
+
+/// en el precio de los hoteles es un 
+/// entero del costo por noche
+
+//les pongo las clases de lo que vamos a utilizar
+recuerden por cada variable existe un solo TXT, 
+no encimamos la informacion
+
+// la categoria de tipo del turismo van a ser
+1)cultural
+2)natural
+3)recreativo
+/// solooo pongan el numero de acuerdo a la categoria
+
+
+///nota general sean cuidadosos con los saltos de linea
+/// porquee cargaa toda la informacion
+class Turismo{
+  String tipo;
+  String nombre;
+  String link;
+  String Descripcion;
+}
+
+class Hotel{
+  String Nombre;
+  int Stars;
+  String Link;
+  String Descripcion;
+  int price;
+}
+
+class Restaurante{
+  String nombre;
+  String link;
+  String Comida;
+  String Descripion;
+}
