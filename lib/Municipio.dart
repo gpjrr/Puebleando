@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io';
 import 'dart:convert';
@@ -12,25 +13,28 @@ class Municipio{
   String Clima;
   String Nombre;
   int tt;
-  List<Hotel> Hoteles;
-  List<Restaurante> Comida;
-  List<Turismo> Atraccion;
+  List<Hotel> Hoteles=[];
+  List<Restaurante> Comida=[];
+  List<Turismo> Atraccion=[];
 
   /// extra data
-  int num; /// numero de municipio
-  Municipio({ this.Clima,this.Nombre, this.tt,this.num, this.Hoteles,this.Comida,this.Atraccion});
+  int Pos; /// numero de municipio
+  Municipio({ this.Clima,this.Nombre, this.tt,this.Pos, this.Hoteles,this.Comida,this.Atraccion});
   Future<String> _getDirPath() async {
     final _dir = await getApplicationDocumentsDirectory();
     return _dir.path;
   }
   void ReadEverything() async{
+      Hoteles=[];
+      Comida=[];
+      Atraccion=[];
       await ReadName();
       await ReadClima();
       await ReadTotalTurismo();
       await ReadElementos();
   }
   void ReadName()  async {
-    String pth='assets/${num}_nombre.txt';
+    String pth='assets/${Pos}_nombre.txt';
     final texto =  await rootBundle.loadString(pth);
     print( "text = $texto ");
     Nombre=texto;
@@ -38,7 +42,7 @@ class Municipio{
 
   }
   void ReadClima() async{
-    String pth='assets/${num}_clima.txt';
+    String pth='assets/${Pos}_clima.txt';
     final texto =  await rootBundle.loadString(pth);
     Clima=texto;
     print(texto);
@@ -46,22 +50,33 @@ class Municipio{
 
   }
   void ReadTotalTurismo() async{
-    String pth='assets/${num}_tt.txt';
+    String pth='assets/${Pos}_tt.txt';
     final texto =  await rootBundle.loadString(pth);
     tt=int.parse( texto );
     print("tt=$tt");
   }
+
   void ReadElementos() async{
-    for(int i=1;i<=5;i++){
+    /// arreglar limites
+    for(int i=1;i<=1;i++){
       Hotel copy=new Hotel( Nombre: "",Stars: 0,Link: "", );
-      await copy.ReadData(num,i);
+      await copy.ReadData(Pos,i);
+      print("copy \n ${copy.Nombre} \n ${copy.Descripcion} \n ${copy.Stars} \n ${copy.Price}" );
       Hoteles.add( copy );
+      print("termino de leer el hotel #$i");
     }
-    for(int i=1;i<=tt;i++){
-      Turismo copi=new Turismo( nombre: "",link: "");
-      await copi.ReadData();
+    for(int i=1;i<=1;i++){
+      Restaurante cop=new Restaurante(Nombre: "",Comida: "",Descripcion: "" );
+      await cop.ReadData(Pos,i);
+      Comida.add( cop );
+    }
+
+    for(int i=1;i<=2;i++){
+      Turismo copi=new Turismo( Nombre: "",Link: "");
+      await copi.ReadData(Pos,i);
       Atraccion.add( copi );
     }
+
   }
 
 }

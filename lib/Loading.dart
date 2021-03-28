@@ -13,15 +13,15 @@ class _LoadingState extends State<Loading> {
   void ReadData() async{
     //arr=[];
     for(int i=1;i<=1;i++) {
-      Municipio nuevo=new Municipio( Nombre: "",num: i );
-
+      Municipio nuevo=new Municipio( Nombre: "",Pos: i );
       await nuevo.ReadEverything();
       arr.add( nuevo );
-      print( "nim= ${arr[i-1].num} ");
-
-
+      print( "num= ${arr[i-1].Pos} ");
     }
 
+    Navigator.pushReplacementNamed(context, '/home',arguments: {
+      'arr':arr
+    } );
   }
 
   @override

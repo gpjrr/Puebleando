@@ -7,21 +7,57 @@ class Hotel{
   int Stars;
   String Link;
   String Descripcion;
-  int price;
+  int Price;
+  /// datos extra
+  int Mun,Pos;
 
-  Hotel( { this.Nombre, this.Stars, this.Link, this.Descripcion, this.price  } );
+  Hotel( { this.Nombre, this.Stars, this.Link, this.Descripcion, this.Price  } );
   void ReadData(int num,int pos) async {
-    print("hotel $pos");
-    String pth='assets/${num}_hotel_${pos}_nombre.txt';
+    print("holel #$pos");
+    Mun=num; Pos=pos;
+    await ReadName();
+    await ReadStars();
+    await ReadLink();
+    await ReadDescripcion();
+    await ReadPrice();
+  }
+
+  void ReadName() async {
+    String pth='assets/${Mun}_hotel_${Pos}_nombre.txt';
     final texto =  await rootBundle.loadString(pth);
-    print( "text = $texto ");
+    print( "name = $texto ");
     Nombre=texto;
     print(texto);
-
   }
-  void ReadName(int num,int pos) async {
 
+  void ReadStars() async{
+    String pth='assets/${Mun}_hotel_${Pos}_stars.txt';
+    final texto =  await rootBundle.loadString(pth);
+    print( "stars = $texto ");
+    Stars=int.parse(texto);
+    print(texto);
+  }
 
+  void ReadLink() async{
+    String pth='assets/${Mun}_hotel_${Pos}_link.txt';
+    final texto =  await rootBundle.loadString(pth);
+    print( "link = $texto ");
+    Link=texto;
+    print(texto);
+  }
+  void ReadDescripcion() async{
+    String pth='assets/${Mun}_hotel_${Pos}_descripcion.txt';
+    final texto =  await rootBundle.loadString(pth);
+    print( "descripcion = $texto ");
+    Descripcion=texto;
+    print(texto);
+  }
+  void ReadPrice() async{
+    String pth='assets/${Mun}_hotel_${Pos}_precio.txt';
+    final texto =  await rootBundle.loadString(pth);
+    print( "precio = $texto ");
+    Price=int.parse( texto );
+    print(texto);
   }
 
 }
