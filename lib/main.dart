@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
 import 'Home.dart';
 import 'Loading.dart';
+import 'MenuMunicipio.dart';
 void main() => runApp( MaterialApp(
 
     initialRoute: '/',
     routes:{
       '/': (context) => Loading(),
       '/home': (context) => Home(),
+      '/menumunicipio': (context) => MenuMunicipio(),
+/*
+      '/menurestaurante':
+      '/menuhotele':
+      ':menuturimso':
+  */
+
     }
 /*
 [164,67,86] rojo

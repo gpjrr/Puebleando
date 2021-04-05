@@ -78,6 +78,9 @@ flutter:
     - family: Adventure 400
       fonts:
           - asset: fonts/Adventure 400.otf
+    - family: DancingScript-Regular
+      fonts:
+          - asset: fonts/DancingScript-Regular.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
