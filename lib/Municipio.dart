@@ -24,6 +24,7 @@ class Municipio{
     final _dir = await getApplicationDocumentsDirectory();
     return _dir.path;
   }
+
   void ReadEverything() async{
       Hoteles=[];
       Comida=[];
@@ -55,7 +56,6 @@ class Municipio{
     tt=int.parse( texto );
     print("tt=$tt");
   }
-
   void ReadElementos() async{
     /// arreglar limites
     for(int i=1;i<=1;i++){
@@ -79,6 +79,25 @@ class Municipio{
 
   }
 
+
+  ///Municipio({ this.Clima,this.Nombre, this.tt,this.Pos, this.Hoteles,this.Comida,this.Atraccion});
+  String Imprimir() {
+      String cad;
+      cad="";
+      cad+="clima"+ Clima +"\n";
+      cad+="nombre"+ Nombre  +"\n";
+      try{
+        cad += "Hoteles" + Hoteles[0].Imprimir() + "\n";
+        cad += "Comidas:" + Comida[0].Imprimir() + "\n";
+        cad += "Turismo:" + Atraccion[0].Imprimir() + "\n";
+      }
+      catch(e){
+        print("error por $e ");
+      }
+
+      return cad;
+  }
+
 }
 /*
     final path = await _getDirPath();
@@ -90,9 +109,6 @@ class Municipio{
     Nombre=texto;
     print(texto);
 */
-
-
-
 /*
 
 class municipio(){

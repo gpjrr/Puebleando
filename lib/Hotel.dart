@@ -29,7 +29,6 @@ class Hotel{
     Nombre=texto;
     print(texto);
   }
-
   void ReadStars() async{
     String pth='assets/${Mun}_hotel_${Pos}_stars.txt';
     final texto =  await rootBundle.loadString(pth);
@@ -37,7 +36,6 @@ class Hotel{
     Stars=int.parse(texto);
     print(texto);
   }
-
   void ReadLink() async{
     String pth='assets/${Mun}_hotel_${Pos}_link.txt';
     final texto =  await rootBundle.loadString(pth);
@@ -58,6 +56,18 @@ class Hotel{
     print( "precio = $texto ");
     Price=int.parse( texto );
     print(texto);
+  }
+
+  //Hotel( { this.Nombre, this.Stars, this.Link, this.Descripcion, this.Price  } );
+  String Imprimir(){
+    String cad;
+    cad="";
+    cad=" nombre"+ Nombre +"\n" ;
+    cad=" Stars"+ " $Stars "  +"\n" ;
+    cad="Link"+ Link +"\n";
+    cad=" descripcion "+ Descripcion +"\n";
+    cad="precio"+ " $Price "+"\n";
+    return cad;
   }
 
 }

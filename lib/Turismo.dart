@@ -47,6 +47,14 @@ class Turismo{
     Descripcion=texto;
     print(texto);
   }
-
+//Turismo( { this.Tipo, this.Nombre, this.Link, this.Descripcion } );
+  String Imprimir(){
+    String cad="";
+    cad+="tipo "+" $Tipo " +"\n";
+    cad+="Nombre "+ Nombre  +" \n";
+    cad+="Link "+  Link +"\n";
+    cad+="Descripcion "+ Descripcion +"\n";
+    return cad;
+  }
 
 }

@@ -47,5 +47,15 @@ class Restaurante{
     Descripcion=texto;
     print(texto);
   }
+  //Restaurante({ this.Nombre, this.Link, this.Comida,this.Descripcion });
+  String Imprimir(){
+    String cad;
+    cad="";
+    cad+="nombre "+ Nombre +"\n";
+    cad+="Link "+ Link +"\n";
+    cad+="Comida "+ Comida  +"\n";
+    cad+=" Decripcion "+ Descripcion +"\n";
 
+    return cad;
+  }
 }
