@@ -3,6 +3,7 @@ import 'Home.dart';
 import 'Loading.dart';
 import 'MenuMunicipio.dart';
 import 'VizorMunicipio.dart';
+import 'VizorOpciones.dart';
 void main() => runApp( MaterialApp(
 
     initialRoute: '/',
@@ -11,7 +12,7 @@ void main() => runApp( MaterialApp(
       '/home' : (context) => Home(),
       '/menumunicipio' : (context) => MenuMunicipio(),
       '/vizormunicipio' : (context) => VizorMunicipio(),
-
+      '/vizoropciones' : (context) => VizorOpciones(),
       /*    '/menurestaurante':     '/menuhotele':    ':menuturimso':     */
       //visorunicipio
     }

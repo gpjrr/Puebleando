@@ -65,7 +65,9 @@ class _VizorMunicipioState extends State<VizorMunicipio> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 RawMaterialButton(
-                  onPressed: () {},
+                  onPressed: () async{
+                    await Navigator.pushNamed(context,'/vizoropciones',arguments: {  'arr':Yo.Comida, 'titulo':'Restaurantes' });
+                  },
                   elevation: 2.0,
                   fillColor: Colors.white,
                   child: Icon(
@@ -77,7 +79,9 @@ class _VizorMunicipioState extends State<VizorMunicipio> {
                   shape: CircleBorder(),
                 ),
                 RawMaterialButton(
-                  onPressed: () {},
+                  onPressed: () async{
+                    await Navigator.pushNamed(context,'/vizoropciones',arguments: {  'arr':Yo.Hoteles, 'titulo':'Hoteles' });
+                  },
                   elevation: 2.0,
                   fillColor: Colors.white,
                   child: Icon(
@@ -89,7 +93,9 @@ class _VizorMunicipioState extends State<VizorMunicipio> {
                   shape: CircleBorder(),
                 ),
                 RawMaterialButton(
-                  onPressed: () {},
+                  onPressed: () async{
+                    await Navigator.pushNamed(context,'/vizoropciones',arguments: {  'arr':Yo.Atraccion, 'titulo':'Atracciones' });
+                  },
                   elevation: 2.0,
                   fillColor: Colors.white,
                   child: Icon(

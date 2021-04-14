@@ -36,7 +36,6 @@ class _MenuMunicipioState extends State<MenuMunicipio> {
             itemCount: arr.length,
             itemBuilder: (context,index){
               return Container(
-
                 decoration: BoxDecoration(
                   border: Border.all(width: 0.5),
                   color: Colors.grey[400],
