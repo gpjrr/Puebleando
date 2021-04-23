@@ -12,6 +12,7 @@ class Municipio{
   ///data on txt
   String Clima;
   String Nombre;
+  String Descripcion;
   int tt;
   List<Hotel> Hoteles=[];
   List<Restaurante> Comida=[];
@@ -31,6 +32,7 @@ class Municipio{
       Atraccion=[];
       await ReadName();
       await ReadClima();
+      await ReadDescripcion();
       await ReadTotalTurismo();
       await ReadElementos();
   }
@@ -47,9 +49,17 @@ class Municipio{
     final texto =  await rootBundle.loadString(pth);
     Clima=texto;
     print(texto);
+  }
+
+  void ReadDescripcion() async{
+    String pth='assets/${Pos}_descripcion.txt';
+    final texto =  await rootBundle.loadString(pth);
+    Descripcion=texto;
+    print(texto);
 
 
   }
+
   void ReadTotalTurismo() async{
     String pth='assets/${Pos}_tt.txt';
     final texto =  await rootBundle.loadString(pth);
@@ -58,20 +68,20 @@ class Municipio{
   }
   void ReadElementos() async{
     /// arreglar limites
-    for(int i=1;i<=1;i++){
+    for(int i=1;i<=5;i++){
       Hotel copy=new Hotel( Nombre: "",Stars: 0,Link: "", );
       await copy.ReadData(Pos,i);
       print("copy \n ${copy.Nombre} \n ${copy.Descripcion} \n ${copy.Stars} \n ${copy.Price}" );
       Hoteles.add( copy );
       print("termino de leer el hotel #$i");
     }
-    for(int i=1;i<=1;i++){
-      Restaurante cop=new Restaurante(Nombre: "",Comida: "",Descripcion: "" );
+    for(int i=1;i<=5;i++){
+      Restaurante cop=new Restaurante(Nombre: "",Comida: "");
       await cop.ReadData(Pos,i);
       Comida.add( cop );
     }
 
-    for(int i=1;i<=2;i++){
+    for(int i=1;i<=tt;i++){
       Turismo copi=new Turismo( Nombre: "",Link: "");
       await copi.ReadData(Pos,i);
       Atraccion.add( copi );
@@ -80,12 +90,14 @@ class Municipio{
   }
 
 
+
   ///Municipio({ this.Clima,this.Nombre, this.tt,this.Pos, this.Hoteles,this.Comida,this.Atraccion});
   String Imprimir() {
       String cad;
       cad="";
       cad+="clima"+ Clima +"\n";
       cad+="nombre"+ Nombre  +"\n";
+      cad+="descripion"+Descripcion  +"\n";
       try{
         cad += "Hoteles" + Hoteles[0].Imprimir() + "\n";
         cad += "Comidas:" + Comida[0].Imprimir() + "\n";

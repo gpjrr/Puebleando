@@ -6,7 +6,7 @@ class Restaurante{
   String Link;
   String Comida;
   String Descripcion;
-  Restaurante({ this.Nombre, this.Link, this.Comida,this.Descripcion });
+  Restaurante({ this.Nombre, this.Link, this.Comida}); //this.Descripcion });
   /// datos extra
   int Mun,Pos;
 
@@ -17,7 +17,7 @@ class Restaurante{
     await ReadNombre();
     await ReadLink();
     await ReadComida();
-    await ReadDescripcion();
+    //await ReadDescripcion();
   }
   void ReadNombre()async{
     String pth='assets/${Mun}_restaurante_${Pos}_nombre.txt';
@@ -40,13 +40,14 @@ class Restaurante{
     Comida=texto;
     print(texto);
   }
+  /*
   void ReadDescripcion() async{
     String pth='assets/${Mun}_restaurante_${Pos}_descripcion.txt';
     final texto =  await rootBundle.loadString(pth);
     print( "descripcion = $texto ");
     Descripcion=texto;
     print(texto);
-  }
+  }*/
   //Restaurante({ this.Nombre, this.Link, this.Comida,this.Descripcion });
   String Imprimir(){
     String cad;
@@ -54,8 +55,7 @@ class Restaurante{
     cad+="nombre "+ Nombre +"\n";
     cad+="Link "+ Link +"\n";
     cad+="Comida "+ Comida  +"\n";
-    cad+=" Decripcion "+ Descripcion +"\n";
-
+   // cad+=" Decripcion "+ Descripcion +"\n";
     return cad;
   }
 }
