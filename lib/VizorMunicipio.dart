@@ -10,6 +10,7 @@ class _VizorMunicipioState extends State<VizorMunicipio> {
   bool Ban=false;
   double betw=15;
   Municipio Yo=new Municipio(Nombre: 'sdf', Clima: "" );
+  List<String> Pictures=[];
   @override
   Widget build(BuildContext context) {
     if( Ban==false ){
@@ -18,6 +19,9 @@ class _VizorMunicipioState extends State<VizorMunicipio> {
       Yo=cosas['Yo'];
       print("namo==="+Yo.Nombre);
       Ban=true;
+      print("pos====${Yo.Pos}");
+      for(int i=1;i<=5;i++)
+        Pictures.add( 'fotos/${Yo.Pos}_foto_${i}.png' );
     }
     return Scaffold(
       appBar: AppBar(
@@ -37,12 +41,61 @@ class _VizorMunicipioState extends State<VizorMunicipio> {
           //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 
           children: <Widget>[
+            Text(
+              'Descripcion',
+              style: TextStyle(
+                fontSize: 25,
+                fontFamily: 'Adventure 400',
+              ),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox( height: betw, width: betw, ),
+
+            Container(
+              margin: EdgeInsets.fromLTRB(5, 0, 5, 0),
+              child: Text(
+                Yo.Descripcion,
+                style: TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  //fontFamily: 'Adventure 400',
+                ),
+              ),
+            ),
+            SizedBox( height: betw, width: betw, ),
+            Text(
+              'Fotos',
+              style: TextStyle(
+                fontSize: 25,
+                fontFamily: 'Adventure 400',
+              ),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox( height: betw, width: betw, ),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 30.0),
+              height: MediaQuery.of(context).size.height * 0.35,
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: Pictures.length,
+                  itemBuilder: (context,index){
+                    return Container(
+                      width: MediaQuery.of(context).size.width ,
+                      child: Image(
+                        image: AssetImage(Pictures[index]),
+                        height: 70,
+                        width: 70,
+                      ),
+                    );
+                  }
+              ),
+            ),
 
             SizedBox( height: betw, width: betw, ),
             Text(
               'Clima',
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 25,
                 fontFamily: 'Adventure 400',
               ),
               textAlign: TextAlign.center,
@@ -66,7 +119,7 @@ class _VizorMunicipioState extends State<VizorMunicipio> {
               children: <Widget>[
                 RawMaterialButton(
                   onPressed: () async{
-                    await Navigator.pushNamed(context,'/vizoropciones',arguments: {  'arr':Yo.Comida, 'titulo':'Restaurantes' });
+                    await Navigator.pushNamed(context,'/vizoropciones',arguments: {  'arr':Yo.Comida, 'titulo':'Restaurantes', 'tipo':1 });
                   },
                   elevation: 2.0,
                   fillColor: Colors.white,
@@ -80,7 +133,7 @@ class _VizorMunicipioState extends State<VizorMunicipio> {
                 ),
                 RawMaterialButton(
                   onPressed: () async{
-                    await Navigator.pushNamed(context,'/vizoropciones',arguments: {  'arr':Yo.Hoteles, 'titulo':'Hoteles' });
+                    await Navigator.pushNamed(context,'/vizoropciones',arguments: {  'arr':Yo.Hoteles, 'titulo':'Hoteles', 'tipo':2 });
                   },
                   elevation: 2.0,
                   fillColor: Colors.white,
@@ -94,7 +147,7 @@ class _VizorMunicipioState extends State<VizorMunicipio> {
                 ),
                 RawMaterialButton(
                   onPressed: () async{
-                    await Navigator.pushNamed(context,'/vizoropciones',arguments: {  'arr':Yo.Atraccion, 'titulo':'Atracciones' });
+                    await Navigator.pushNamed(context,'/vizoropciones',arguments: {  'arr':Yo.Atraccion, 'titulo':'Atracciones','tipo':3 });
                   },
                   elevation: 2.0,
                   fillColor: Colors.white,
@@ -107,8 +160,9 @@ class _VizorMunicipioState extends State<VizorMunicipio> {
                   shape: CircleBorder(),
                 )
               ],
-            )
-
+            ),
+            SizedBox( height: betw, width: betw, ),
+            SizedBox( height: betw, width: betw, ),
           ],
         ),
       ),

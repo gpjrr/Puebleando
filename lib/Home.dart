@@ -79,6 +79,7 @@ class _HomeState extends State<Home> {
                 ),
                 onTap: ()async {
                   await Navigator.pushNamed(context, '/menumunicipio',arguments: {'arr':arr} );
+                  Navigator.pop(context);
                 },
               ),
               Divider(),
