@@ -12,7 +12,8 @@ class _LoadingState extends State<Loading> {
 
   void ReadData() async{
     //arr=[];
-    for(int i=1;i<=1;i++) {
+    for(int i=1;i<=6;i++) {
+      print("municipio num $i");
       Municipio nuevo=new Municipio( Nombre: "",Pos: i );
       await nuevo.ReadEverything();
       arr.add( nuevo );

@@ -24,21 +24,21 @@ class Restaurante{
     final texto =  await rootBundle.loadString(pth);
     print( "name = $texto ");
     Nombre=texto;
-    print(texto);
+  //  print(texto);
   }
   void ReadLink() async{
     String pth='assets/${Mun}_restaurante_${Pos}_link.txt';
     final texto =  await rootBundle.loadString(pth);
-    print( "link = $texto ");
+    //print( "link = $texto ");
     Link=texto;
-    print(texto);
+   // print(texto);
   }
   void ReadComida() async{
     String pth='assets/${Mun}_restaurante_${Pos}_comida.txt';
     final texto =  await rootBundle.loadString(pth);
-    print( "comida = $texto ");
+   // print( "comida = $texto ");
     Comida=texto;
-    print(texto);
+    //print(texto);
   }
   /*
   void ReadDescripcion() async{
@@ -53,8 +53,8 @@ class Restaurante{
     String cad;
     cad="";
     cad+="nombre "+ Nombre +"\n";
-    cad+="Link "+ Link +"\n";
-    cad+="Comida "+ Comida  +"\n";
+   // cad+="Link "+ Link +"\n";
+    //cad+="Comida "+ Comida  +"\n";
    // cad+=" Decripcion "+ Descripcion +"\n";
     return cad;
   }
