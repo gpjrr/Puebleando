@@ -48,14 +48,14 @@ class Municipio{
     String pth='assets/${Pos}_clima.txt';
     final texto =  await rootBundle.loadString(pth);
     Clima=texto;
-    print(texto);
+    //print(texto);
   }
 
   void ReadDescripcion() async{
     String pth='assets/${Pos}_descripcion.txt';
     final texto =  await rootBundle.loadString(pth);
     Descripcion=texto;
-    print(texto);
+    //print(texto);
 
 
   }
@@ -71,9 +71,9 @@ class Municipio{
     for(int i=1;i<=5;i++){
       Hotel copy=new Hotel( Nombre: "",Stars: 0,Link: "", );
       await copy.ReadData(Pos,i);
-      print("copy \n ${copy.Nombre} \n ${copy.Descripcion} \n ${copy.Stars} \n ${copy.Price}" );
+      //print("copy \n ${copy.Nombre} \n ${copy.Descripcion} \n ${copy.Stars} \n ${copy.Price}" );
       Hoteles.add( copy );
-      print("termino de leer el hotel #$i");
+     // print("termino de leer el hotel #$i");
     }
     for(int i=1;i<=5;i++){
       Restaurante cop=new Restaurante(Nombre: "",Comida: "");

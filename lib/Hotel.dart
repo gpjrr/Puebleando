@@ -32,30 +32,30 @@ class Hotel{
   void ReadStars() async{
     String pth='assets/${Mun}_hotel_${Pos}_stars.txt';
     final texto =  await rootBundle.loadString(pth);
-    print( "stars = $texto ");
+   // print( "stars = $texto ");
     Stars=int.parse(texto);
-    print(texto);
+   // print(texto);
   }
   void ReadLink() async{
     String pth='assets/${Mun}_hotel_${Pos}_link.txt';
     final texto =  await rootBundle.loadString(pth);
-    print( "link = $texto ");
+   // print( "link = $texto ");
     Link=texto;
-    print(texto);
+   // print(texto);
   }
   void ReadDescripcion() async{
     String pth='assets/${Mun}_hotel_${Pos}_descripcion.txt';
     final texto =  await rootBundle.loadString(pth);
-    print( "descripcion = $texto ");
+    //print( "descripcion = $texto ");
     Descripcion=texto;
-    print(texto);
+    //print(texto);
   }
   void ReadPrice() async{
     String pth='assets/${Mun}_hotel_${Pos}_precio.txt';
     final texto =  await rootBundle.loadString(pth);
-    print( "precio = $texto ");
+    //print( "precio = $texto ");
     Price=int.parse( texto );
-    print(texto);
+    //print(texto);
   }
 
   //Hotel( { this.Nombre, this.Stars, this.Link, this.Descripcion, this.Price  } );
