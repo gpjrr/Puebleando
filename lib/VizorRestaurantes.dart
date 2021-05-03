@@ -24,10 +24,9 @@ class _VizorRestaurantesState extends State<VizorRestaurantes> {
           backgroundColor:  Color.fromRGBO( 164, 67,86 ,1),
           centerTitle: true,
           title: Text(
-            Yo.Nombre,
+            'Restaurante #${Yo.Pos}',
             style: TextStyle(
-
-                fontSize: 20,
+                fontSize: 40,
                 fontFamily: 'Redressed-Regular'
             ),
 
@@ -36,6 +35,15 @@ class _VizorRestaurantesState extends State<VizorRestaurantes> {
       body: SafeArea(
         child: ListView(
           children: <Widget>[
+            Text(
+              Yo.Nombre,
+              style: TextStyle(
+                  fontSize: 40,
+                  fontFamily: 'Redressed-Regular'
+              ),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox( height: betw, width: betw, ),
             Image(
               image: AssetImage( 'fotos/${Yo.Mun}_restaurante_${Yo.Pos}_foto.png' ),
              // height: 100,
@@ -61,6 +69,16 @@ class _VizorRestaurantesState extends State<VizorRestaurantes> {
               textAlign: TextAlign.center,
             ),
             SizedBox( height: betw, width: betw, ),
+            Text(
+              'Ubicacion',
+              style: TextStyle(
+                fontSize: 25,
+                fontFamily: 'Adventure 400',
+              ),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox( height: betw, width: betw, ),
+
             IconButton(
               icon: Icon(
                   Icons.location_on,
