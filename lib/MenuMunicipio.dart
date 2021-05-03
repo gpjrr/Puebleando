@@ -69,7 +69,7 @@ class _MenuMunicipioState extends State<MenuMunicipio> {
                 ),
                 onTap: ()async {
                   Navigator.pop(context);
-                  await Navigator.pushNamed(context, '/menumunicipio',arguments: {'arr':arr} );
+                  await Navigator.pushReplacementNamed(context, '/menumunicipio',arguments: {'arr':arr} );
                 },
               ),
               Divider(),
@@ -87,6 +87,10 @@ class _MenuMunicipioState extends State<MenuMunicipio> {
                   Icons.map,
                   color: Colors.black,
                 ),
+                onTap: ()async{
+                  Navigator.pop(context);
+                  await Navigator.pushNamed(context, '/mapapuebla'  );
+                },
               ),
               Divider(),
               ListTile(
@@ -103,6 +107,10 @@ class _MenuMunicipioState extends State<MenuMunicipio> {
                   Icons.message,
                   color: Colors.black,
                 ),
+                onTap: ()async{
+                  Navigator.pop(context);
+                  await Navigator.pushNamed(context, '/contacto'  );
+                },
               ),
               Divider(),
             ],

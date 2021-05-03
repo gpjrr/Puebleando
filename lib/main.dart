@@ -7,6 +7,8 @@ import 'VizorOpciones.dart';
 import 'VizorRestaurantes.dart';
 import 'VizorHotel.dart';
 import 'VizorTurismo.dart';
+import 'Contacto.dart';
+import 'Mapa.dart';
 void main() => runApp( MaterialApp(
 
     initialRoute: '/',
@@ -19,7 +21,8 @@ void main() => runApp( MaterialApp(
       '/vizorrestaurante': (context) => VizorRestaurantes(),
           '/vizorhotel':(context)=> VizorHotel(),
       '/vizorturismo': (context)=> VizorTurismo(),
-
+      '/contacto':(context) => Contacto(),
+      '/mapapuebla':(context) => Mapa(),
 
       //visorunicipio
     }

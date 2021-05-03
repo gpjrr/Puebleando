@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:puebleando/Municipio.dart';
+import 'dart:math';
 
 class Home extends StatefulWidget {
   @override
@@ -11,15 +12,14 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   List<Municipio> arr=[];
   bool ban=false;
+  String Pictures=[];
   @override
   Widget build(BuildContext context) {
     if( ban==false ){
       ban=true;
       dynamic cosas = ModalRoute.of(context).settings.arguments;
       arr=cosas['arr'];
-      print("`````````````````````````````````````````````````````........................``````````````````````````");
-      print( arr[0].Imprimir() );
-      print("`````````````````````````````````````````````````````........................``````````````````````````");
+
     }
 
     return Scaffold(
@@ -78,8 +78,8 @@ class _HomeState extends State<Home> {
                   color: Colors.black,
                 ),
                 onTap: ()async {
-                  await Navigator.pushNamed(context, '/menumunicipio',arguments: {'arr':arr} );
                   Navigator.pop(context);
+                  await Navigator.pushReplacementNamed(context, '/menumunicipio',arguments: {'arr':arr} );
                 },
               ),
               Divider(),
@@ -97,6 +97,10 @@ class _HomeState extends State<Home> {
                   Icons.map,
                   color: Colors.black,
                 ),
+                onTap: ()async{
+                  Navigator.pop(context);
+                  await Navigator.pushNamed(context, '/mapapuebla'  );
+                },
               ),
               Divider(),
               ListTile(
@@ -113,6 +117,10 @@ class _HomeState extends State<Home> {
                   Icons.message,
                   color: Colors.black,
                 ),
+                onTap: ()async{
+                  Navigator.pop(context);
+                  await Navigator.pushNamed(context, '/contacto'  );
+                },
               ),
               Divider(),
             ],
@@ -137,7 +145,7 @@ class _HomeState extends State<Home> {
           ///fotoo
           SizedBox(height: 30,width: 30,),
           Text(
-            "Queremos brindarte app, para que encuentres los mejores luegares en Puebla, y pases un tiempo muy bueno",
+            "Queremos brindarte está app, para que encuentres los mejores lugares en Puebla, y pases un tiempo muy bueno viajando a traves de Puebla",
             style: TextStyle(
               fontSize: 20,
               fontFamily: 'Adventure 400',
@@ -145,14 +153,7 @@ class _HomeState extends State<Home> {
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 30,width: 30,),
-          Text(
-            "Novedades",
-            style: TextStyle(
-              fontSize: 60,
-              fontFamily: 'Adventure 400',
-            ),
-            textAlign: TextAlign.center,
-          ),
+
          /* Padding(
             padding: EdgeInsets.symmetric(horizontal: 100,vertical: 30),
             child: FlatButton(
