@@ -48,14 +48,14 @@ class _VizorOpcionesState extends State<VizorOpciones> {
           ),
         ),
         actions: [
-          IconButton(
+          /*IconButton(
               icon: Icon(
                   Icons.search
               ),
               onPressed: () {
                 showSearch(context: context, delegate: Searcher( arr ) );
               },
-          ),
+          ),*/
         ],
     ),
       body: SafeArea(

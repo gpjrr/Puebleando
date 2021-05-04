@@ -28,7 +28,7 @@ class _VizorMunicipioState extends State<VizorMunicipio> {
           backgroundColor:  Color.fromRGBO( 164, 67,86 ,1),
           centerTitle: true,
           title: Text(
-            Yo.Nombre,
+            "Municipio #${Yo.Pos}",
             style: TextStyle(
                 fontSize: 40,
                 fontFamily: 'Redressed-Regular'
@@ -41,6 +41,15 @@ class _VizorMunicipioState extends State<VizorMunicipio> {
           //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 
           children: <Widget>[
+            Text(
+              Yo.Nombre,
+              style: TextStyle(
+                  fontSize: 40,
+                  fontFamily: 'Redressed-Regular'
+              ),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox( height: betw, width: betw, ),
             Text(
               'Descripcion',
               style: TextStyle(
