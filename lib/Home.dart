@@ -12,14 +12,39 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   List<Municipio> arr=[];
   bool ban=false;
-  String Pictures=[];
+  List<String> Pictures=[];
+
+
+  List shuffle(List items) {
+    var random = new Random();
+
+    // Go through all elements.
+    for (var i = items.length - 1; i > 0; i--) {
+
+      // Pick a pseudorandom number according to the list length
+      var n = random.nextInt(i + 1);
+
+      var temp = items[i];
+      items[i] = items[n];
+      items[n] = temp;
+    }
+
+    return items;
+  }
+
   @override
   Widget build(BuildContext context) {
     if( ban==false ){
       ban=true;
       dynamic cosas = ModalRoute.of(context).settings.arguments;
       arr=cosas['arr'];
-
+      for(int i=1;i<=6;i++ ){
+        Pictures.add( 'fotos/${i}_foto_1.png' );
+        Pictures.add( 'fotos/${i}_foto_2.png' );
+        Pictures.add( 'fotos/${i}_foto_3.png' );
+        Pictures.add( 'fotos/${i}_turismo_1_foto.png' );
+      }
+      Pictures=shuffle(Pictures);
     }
 
     return Scaffold(
@@ -129,7 +154,7 @@ class _HomeState extends State<Home> {
 
         ),
       ),
-      backgroundColor: Color.fromRGBO(45,188,222,1),
+      //backgroundColor: Color.fromRGBO(45,188,222,1),
       body: ListView(
 
         //crossAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -153,7 +178,26 @@ class _HomeState extends State<Home> {
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 30,width: 30,),
-
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 30.0),
+            height: MediaQuery.of(context).size.height * 0.35,
+            child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: Pictures.length,
+                itemBuilder: (context,index){
+                  return Container(
+                    width: MediaQuery.of(context).size.width ,
+                    child: Image(
+                      image: AssetImage(Pictures[index]),
+                      height: 70,
+                      width: 70,
+                    ),
+                  );
+                }
+            ),
+          ),
+          SizedBox(height: 30,width: 30,),
+          SizedBox(height: 30,width: 30,),
          /* Padding(
             padding: EdgeInsets.symmetric(horizontal: 100,vertical: 30),
             child: FlatButton(

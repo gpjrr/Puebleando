@@ -4,7 +4,7 @@ import 'package:puebleando/Municipio.dart';
 class Searcher extends SearchDelegate{
   String SelectedResult;
   List<dynamic> arre;
-  List<String> Pasado=['tangamandapio','teziutlan','zacatlan'];
+  List<String> Pasado=[];
   Searcher(this.arre);
   @override
   List<Widget> buildActions(BuildContext context) {
@@ -36,7 +36,7 @@ class Searcher extends SearchDelegate{
   Widget buildResults(BuildContext context) {
     return Container(
       child: Text(
-        SelectedResult,
+        "res=$SelectedResult",
         style:TextStyle(
           fontSize: 20,
           fontFamily: 'Adventure 400',
@@ -50,6 +50,7 @@ class Searcher extends SearchDelegate{
     List<String> tips =[];
     query.isEmpty?tips=Pasado:(){
       tips=[];
+      print("tips se llenan");
       for( var yo in arre ){
         if(  yo.Nombre.Contains( query ) )
           tips.add( yo.Nombre );
@@ -69,6 +70,7 @@ class Searcher extends SearchDelegate{
 
             ),
             onTap: (){
+              print("algo hace");
               SelectedResult=tips[index];
               showResults(context);
             },
