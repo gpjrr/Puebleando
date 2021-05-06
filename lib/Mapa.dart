@@ -28,10 +28,15 @@ class _MapaState extends State<Mapa> {
           )
       ),
       body: SafeArea(
+
               child: PhotoView(
-                imageProvider: AssetImage('fotos/mapatrans.png'),
+                imageProvider: AssetImage('fotos/mapapueN.jpg'),
+                backgroundDecoration: BoxDecoration(
+                  color: Colors.white
+                ),
               )
       ),
+      ///backgroundColor: Colors.red,
 
 
     );
