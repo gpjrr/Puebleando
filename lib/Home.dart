@@ -57,7 +57,7 @@ class _HomeState extends State<Home> {
         //shadowColor: Colors.redAccent,
         centerTitle: true,
           title: Text(
-          "Pueblando",
+          "Puebleando",
           style: TextStyle(
               fontSize: 40,
               fontFamily: 'DancingScript-Regular'
@@ -170,7 +170,7 @@ class _HomeState extends State<Home> {
           ///fotoo
           SizedBox(height: 30,width: 30,),
           Text(
-            "Queremos brindarte está app, para que encuentres los mejores lugares en Puebla, y pases un tiempo muy bueno viajando a traves de Puebla",
+            "Hola bienvenido a Puebleando, una aplicación dedicada a los turistas que buscan tener una aventura mágica recorriendo los distintos pueblos mágicos de Puebla.",
             style: TextStyle(
               fontSize: 20,
               fontFamily: 'Adventure 400',

@@ -10,7 +10,7 @@ class VizorRestaurantes extends StatefulWidget {
 class _VizorRestaurantesState extends State<VizorRestaurantes> {
   Restaurante Yo;
   bool Ban=false;
-  double betw=15;
+  double betw=25;
   @override
   Widget build(BuildContext context) {
     if( Ban==false ){
@@ -35,7 +35,9 @@ class _VizorRestaurantesState extends State<VizorRestaurantes> {
       body: SafeArea(
         child: ListView(
           children: <Widget>[
-            Text(
+            SizedBox( height: betw, width: betw, ),
+            SizedBox( height: betw, width: betw, ),
+              Text(
               Yo.Nombre,
               style: TextStyle(
                   fontSize: 40,
@@ -69,22 +71,16 @@ class _VizorRestaurantesState extends State<VizorRestaurantes> {
               textAlign: TextAlign.center,
             ),
             SizedBox( height: betw, width: betw, ),
-            Text(
-              'Ubicacion',
-              style: TextStyle(
-                fontSize: 25,
-                fontFamily: 'Adventure 400',
+            FlatButton(
+              child: Text(
+                'Ubicacion',
+                style: TextStyle(
+                  fontSize: 25,
+                  fontFamily: 'Adventure 400',
+                  color: Colors.blue,
+                ),
               ),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox( height: betw, width: betw, ),
-
-            IconButton(
-              icon: Icon(
-                  Icons.location_on,
-                  color: Colors.red[500],
-              ),
-              tooltip: 'link de la ubicacion',
+              shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
               onPressed: ()async{
                 await launch(Yo.Link);
               },

@@ -38,7 +38,7 @@ class _ContactoState extends State<Contacto> {
         child: ListView(
           children: <Widget>[
             Text(
-              "Equipo numero 10",
+              "Equipo numero 8",
               style: TextStyle(
                   fontSize: 40,
                   fontFamily: 'Redressed-Regular'
@@ -148,7 +148,7 @@ class _ContactoState extends State<Contacto> {
             ),
             SizedBox( height: betw, width: betw, ),
             Text(
-              'erwin20rr@hotmail.com',
+              'Godzilla.contacto@hotmail.com',
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
